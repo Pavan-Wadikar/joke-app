@@ -33,14 +33,18 @@ async function jokeApi() {
 jokeApi()
   .then((value) => {
     value;
+    console.log(value);
 
     if (value.type == "single") {
-      singleJoke.innerText = value.joke;
+      setup.style.display = "none";
+      delivery.style.display = "none";
+      singleJoke.innerText = "Joke: " + value.joke;
       console.log(singleJoke);
     } else if (value.type == "twopart") {
-      setup.innerText = value["setup"];
+      singleJoke.style.display = "none";
+      setup.innerText = "Setup: " + value["setup"];
       console.log(setup);
-      delivery.innerText = value["delivery"];
+      delivery.innerText = "Delivery: " + value["delivery"];
       console.log(delivery);
     }
   })
